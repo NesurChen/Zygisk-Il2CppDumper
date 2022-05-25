@@ -519,7 +519,7 @@ void il2cpp_dump(void *handle, char *outDir) {
 
     auto scriptPath = std::string(outDir).append("/files/dump.json");
     std::ofstream ofs(scriptPath);
-    list<string> ret = SerializeDumps(dumps);
+    vector<string> ret = SerializeDumps(dumps);
     for(string str : ret){
         if(str.find(",]")){
             Replace(str,",]","]");

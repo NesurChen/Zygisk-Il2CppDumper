@@ -43,8 +43,8 @@ void Replace(string& s1, const string& s2, const string& s3)
     }
 }
 
-list<string> SerializeDumps(list<Dump> dumps) {
-    list<string> allStr;
+vector<string> SerializeDumps(list<Dump> dumps) {
+    vector<string> allStr;
     string result;
     allStr.push_back("{\"Dumps\":[");
     for (Dump dump : dumps) {
@@ -57,14 +57,14 @@ list<string> SerializeDumps(list<Dump> dumps) {
                      + "\"name\":\"" + field.name + "\","
                      + "\"offset\":\"" + field.offset + "\"},";
         }
-        //遍历完fields，开始遍历properties
+        //閬嶅巻瀹宖ields锛屽紑濮嬮亶鍘唒roperties
         result += "],\"properties\": [";
         for (Property property : dump.properties)
         {
             result = result + "{"
                      + "\"name\":\"" + property.name + "\"},";
         }
-        //遍历完properties开始遍历methods
+        //閬嶅巻瀹宲roperties寮�濮嬮亶鍘唌ethods
         result += "],\"methods\": [";
         for (Method method : dump.methods)
         {
